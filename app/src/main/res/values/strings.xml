@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Brain Power</string>
+    <string name="goButton">GO!</string>
+    <string name="go">GO!</string>
+</resources>
