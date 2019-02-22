@@ -2,6 +2,7 @@ package demo.gestures.brainpower;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +14,19 @@ public class MainActivity extends AppCompatActivity {
 
     Button goButton;
     ArrayList<Integer> answers=new ArrayList<Integer>();
+    int locationOfCorrectAnswer;
+
+    public void chooseAnswer(View view)
+    {
+       if (Integer.toString(locationOfCorrectAnswer).equals(view.getTag().toString()))
+        {
+            Log.i("Correct!","You got it");
+        }
+        else{
+           Log.i("Wrong!",":/");
+       }
+
+    }
 
     public void start(View view){
         goButton.setVisibility(View.INVISIBLE);
@@ -45,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         sumTextView.setText(Integer.toString(a) + " + " + Integer.toString(b));
 
-        int locationOfCorrectAnswer=rand.nextInt(4);
+         int locationOfCorrectAnswer=rand.nextInt(4);
 
         for(int i=0; i<4; i++){
 
