@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         numberOfQuestions=0;
         timerTextView.setText("30s");
         scoreTextView.setText(Integer.toString(score) + " / "+Integer.toString(numberOfQuestions));
-
         newQuestion();
         playAgainButton.setVisibility(View.INVISIBLE);
+        resultTextView.setText(" ");
 
-        new CountDownTimer(30100,1000){
+        new CountDownTimer(30000,1000){
 
             @Override
             public void onTick(long l) {
@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         gameLayout.setVisibility(View.VISIBLE);
         playAgain(findViewById(R.id.timerTextView));
 
+
     }
 
     public void newQuestion(){
@@ -103,11 +104,11 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                int wrongAnswer = rand.nextInt( 41);
+                int wrongAnswer = rand.nextInt( 61);
 
                 while (wrongAnswer == a+b)
                 {
-                    wrongAnswer=rand.nextInt( 41);
+                    wrongAnswer=rand.nextInt( 61);
                 }
 
                 answers.add(wrongAnswer);
@@ -136,11 +137,11 @@ public class MainActivity extends AppCompatActivity {
          button1=findViewById(R.id.button1);
          button2=findViewById(R.id.button2);
          button3=findViewById(R.id.button3);
-        resultTextView = findViewById(R.id.resultTextView);
-        scoreTextView= findViewById(R.id.scoreTextView);
-        timerTextView=findViewById(R.id.timerTextView);
-        playAgainButton=findViewById(R.id.palyAgainButton);
-        gameLayout=findViewById(R.id.gameLayout);
+         resultTextView = findViewById(R.id.resultTextView);
+         scoreTextView= findViewById(R.id.scoreTextView);
+         timerTextView=findViewById(R.id.timerTextView);
+         playAgainButton=findViewById(R.id.palyAgainButton);
+         gameLayout=findViewById(R.id.gameLayout);
 
 
 
