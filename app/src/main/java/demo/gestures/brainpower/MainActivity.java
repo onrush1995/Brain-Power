@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     Button playAgainButton;
     ConstraintLayout gameLayout;
 
-    public void playAgain(View view){
+    public void playAgain(final View view){
         score=0;
         numberOfQuestions=0;
         timerTextView.setText("30s");
@@ -38,19 +39,39 @@ public class MainActivity extends AppCompatActivity {
         newQuestion();
         playAgainButton.setVisibility(View.INVISIBLE);
         resultTextView.setText(" ");
+        button0.setEnabled(true);
+        button1.setEnabled(true);
+        button2.setEnabled(true);
+        button3.setEnabled(true);
 
-        new CountDownTimer(30000,1000){
+
+        new CountDownTimer(30100,1000){
+
 
             @Override
-            public void onTick(long l) {
-                timerTextView.setText(String.valueOf(l / 1000) + "s");
+            public void onTick(long millisUntilFinished) {
+
+                    timerTextView.setText(String.valueOf(millisUntilFinished / 1000) + "s");
+
 
             }
 
             @Override
             public void onFinish() {
-                resultTextView.setText("Done!");
+                resultTextView.setText("Game Over!");
                 playAgainButton.setVisibility(View.VISIBLE);
+                button0.setEnabled(false);
+                button1.setEnabled(false);
+                button2.setEnabled(false);
+                button3.setEnabled(false);
+
+
+
+
+
+
+
+
 
             }
         }.start();
